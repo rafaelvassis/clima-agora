@@ -1,0 +1,20 @@
+.weatherCard_container {
+  border: solid, black, 1px;
+  padding: 2rem;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: linear-gradient(160deg, rgb(184, 209, 255) 50%, green 110%);
+}
+
+h2 {
+  color: darkslateblue;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+p {
+  font-weight: bold;
+}
