@@ -4,12 +4,19 @@
   box-sizing: border-box;
 }
 
-main {
-  padding: 2rem;
-  max-width: 500;
-}
-
 body {
   font-family: "Courier New", Courier, monospace;
   font-size: 15px;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 2rem;
+  max-width: 500;
+  border: solid, rgb(6, 6, 6), 1px;;
+  border-radius: 2%;
+  margin: 2%;
+}
+
