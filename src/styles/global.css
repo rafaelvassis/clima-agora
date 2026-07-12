@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+main {
+  padding: 2rem;
+  max-width: 500;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+}
