@@ -45,8 +45,7 @@ function App() {
 
   return (
     <main>
-      <SearchBar city={city} onCityChange={setCity} onSearch={handleSearch} />
-      {loading && <p>Carregando...</p>}
+      <SearchBar city={city} onCityChange={setCity} onSearch={handleSearch} loading={loading}/>
       {error && <p>{error}</p>}
       {weather && (
         <WeatherCard
