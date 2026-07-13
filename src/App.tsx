@@ -35,13 +35,15 @@ function App() {
   return (
     <main>
       <SearchBar city={city} onCityChange={setCity} onSearch={handleSearch} />
-      <WeatherCard
-        cityName="Teste"
-        temperature="teste"
-        weatherDescription="teste"
-        humidity="teste"
-        windSpeed="teste  "
-      />
+      {weather && (
+        <WeatherCard
+          cityName={weather.name}
+          temperature={weather.main.temp.toString()}
+          weatherDescription={weather.weather[0].description}
+          humidity={weather.main.humidity.toString()}
+          windSpeed={weather.wind.speed.toString()}
+        />
+      )}
       <Credits />
     </main>
   );
