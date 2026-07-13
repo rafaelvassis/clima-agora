@@ -24,10 +24,10 @@ export function WeatherCard({
         <h2>{cityName}</h2>
         <img src={iconUrl} alt={weatherDescription} />
       </div>
-      <p>Temperatura: {temperature} ºC</p>
+      <p>Temperatura: {Math.round(temperature)} ºC</p>
       <p>Condição do tempo: {weatherDescription}</p>
       <p>Umidade: {humidity}%</p>
-      <p>Vento: {windSpeed} km/h</p>
+      <p>Vento: {Math.round(windSpeed)} km/h</p>
     </div>
   );
 }
