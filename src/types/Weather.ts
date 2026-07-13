@@ -8,6 +8,7 @@ export type WeatherData = {
 
   weather: {
     description: string;
+    icon: string;
   }[];
 
   wind: {

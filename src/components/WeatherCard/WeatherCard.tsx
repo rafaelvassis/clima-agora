@@ -6,6 +6,7 @@ type WeatherCardProps = {
   weatherDescription: string;
   humidity: number;
   windSpeed: number;
+  icon: string;
 };
 export function WeatherCard({
   cityName,
@@ -13,10 +14,16 @@ export function WeatherCard({
   weatherDescription,
   humidity,
   windSpeed,
+  icon,
 }: WeatherCardProps) {
+  const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+
   return (
     <div className="weatherCard_container">
-      <h2>{cityName}</h2>
+      <div>
+        <h2>{cityName}</h2>
+        <img src={iconUrl} alt={weatherDescription} />
+      </div>
       <p>Temperatura: {temperature} ºC</p>
       <p>Condição do tempo: {weatherDescription}</p>
       <p>Umidade: {humidity}%</p>

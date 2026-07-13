@@ -55,6 +55,7 @@ function App() {
           weatherDescription={weather.weather[0].description}
           humidity={weather.main.humidity}
           windSpeed={weather.wind.speed}
+          icon={weather.weather[0].icon}
         />
       )}
       <Credits />
