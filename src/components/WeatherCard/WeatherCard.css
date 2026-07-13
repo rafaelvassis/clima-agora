@@ -1,20 +1,41 @@
 .weatherCard_container {
-  border: solid, black, 1px;
-  padding: 2rem;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 28px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  background: linear-gradient(160deg, rgb(184, 209, 255) 50%, green 110%);
+  gap: 14px;
 }
 
-h2 {
-  color: darkslateblue;
-  font-size: xx-large;
-  font-weight: bold;
+.weatherCard_container div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-p {
+.weatherCard_container img {
+  width: 90px;
+  height: 90px;
+}
+
+.weatherCard_container h2 {
+  color: #1565c0;
+  font-size: 30px;
+}
+
+.weatherCard_container p {
+  font-size: 18px;
+  color: #444;
+}
+
+.temperature {
+  font-size: 52px;
   font-weight: bold;
+  color: #1565c0;
+  text-align: center;
 }

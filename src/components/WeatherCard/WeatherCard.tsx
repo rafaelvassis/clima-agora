@@ -25,7 +25,7 @@ export function WeatherCard({
         <h2>📍{cityName}</h2>
         <img src={iconUrl} alt={weatherDescription} />
       </div>
-      <p>{Math.round(temperature)} ºC</p>
+      <p className="temperature">{temperature.toFixed(0)}°C</p>
       <p>{capitalize(weatherDescription)}</p>
       <p>💧 {humidity}%</p>
       <p>💨 {Math.round(windSpeed)} km/h</p>
