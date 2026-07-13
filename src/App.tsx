@@ -8,33 +8,46 @@ function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
 
   const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pt_br`;
 
   async function handleSearch() {
-    console.log(city);
+    if (city.trim() === "") {
+      setWeather(null);
+      setError("Digite uma cidade.");
+      return;
+    }
 
-    const response = await fetch(URL);
+    setLoading(true);
+    setError("");
 
-    console.log(response);
+    try {
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric&lang=pt_br`;
+      const response = await fetch(URL);
 
-    const data: WeatherData = await response.json();
+      if (!response.ok) {
+        setWeather(null);
+        setError("Cidade não encontrada.");
+        return;
+      }
 
-    setWeather(data);
+      const data: WeatherData = await response.json();
 
-    console.log(data);
-
-    console.log(data.main.temp);
-    console.log(data.weather[0].description);
-    console.log(data.wind.speed);
-    console.log(data.name);
+      setWeather(data);
+    } catch {
+      setWeather(null);
+      setError("Erro ao consultar a API.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <main>
       <SearchBar city={city} onCityChange={setCity} onSearch={handleSearch} />
+      {loading && <p>Carregando...</p>}
+      {error && <p>{error}</p>}
       {weather && (
         <WeatherCard
           cityName={weather.name}
