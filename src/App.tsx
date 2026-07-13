@@ -38,10 +38,10 @@ function App() {
       {weather && (
         <WeatherCard
           cityName={weather.name}
-          temperature={weather.main.temp.toString()}
+          temperature={weather.main.temp}
           weatherDescription={weather.weather[0].description}
-          humidity={weather.main.humidity.toString()}
-          windSpeed={weather.wind.speed.toString()}
+          humidity={weather.main.humidity}
+          windSpeed={weather.wind.speed}
         />
       )}
       <Credits />

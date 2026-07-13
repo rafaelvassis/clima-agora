@@ -2,10 +2,10 @@ import "./WeatherCard.css";
 
 type WeatherCardProps = {
   cityName: string;
-  temperature: string;
+  temperature: number;
   weatherDescription: string;
-  humidity: string;
-  windSpeed: string;
+  humidity: number;
+  windSpeed: number;
 };
 export function WeatherCard({
   cityName,
@@ -17,8 +17,8 @@ export function WeatherCard({
   return (
     <div className="weatherCard_container">
       <h2>{cityName}</h2>
-      <p>{temperature} ºC</p>
-      <p>{weatherDescription}</p>
+      <p>Temperatura: {temperature} ºC</p>
+      <p>Condição do tempo: {weatherDescription}</p>
       <p>Umidade: {humidity}%</p>
       <p>Vento: {windSpeed} km/h</p>
     </div>
