@@ -22,6 +22,11 @@ export function SearchBar({
         placeholder="Digite o nome da cidade"
         value={city}
         onChange={(e) => onCityChange(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onSearch();
+          }
+        }}
       />
       <button onClick={onSearch} disabled={loading}>
         {loading ? "Pesquisando..." : "Pesquisar"}
