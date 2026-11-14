@@ -1,12 +1,8 @@
 # 🌤️ Clima Agora
 
-Aplicação desenvolvida em React e TypeScript para consulta das condições climáticas de cidades em tempo real utilizando a API da OpenWeather.
+Aplicação web para consultar o clima atual de qualquer cidade, usando a API da OpenWeather.
 
-O projeto foi desenvolvido com foco na prática de consumo de APIs REST, gerenciamento de estado, componentização e tratamento de requisições assíncronas.
-
----
-
-## 📸 Demonstração
+🔗 **[Acesse o projeto online](https://clima-agora-seven.vercel.app/)**
 
 ![Demonstração da aplicação](docs/demo.gif)
 
@@ -14,78 +10,64 @@ O projeto foi desenvolvido com foco na prática de consumo de APIs REST, gerenci
 
 ## 🚀 Funcionalidades
 
-- ✅ Pesquisa de cidades
-- ✅ Consulta em tempo real utilizando a API OpenWeather
-- ✅ Exibição da temperatura atual
-- ✅ Condição do tempo
-- ✅ Umidade do ar
-- ✅ Velocidade do vento
-- ✅ Ícone representando o clima atual
-- ✅ Tratamento para cidade inexistente
-- ✅ Tratamento para campo vazio
-- ✅ Indicador de carregamento durante a consulta
+- Busca por cidade (botão ou Enter)
+- Temperatura, condição do tempo, umidade e velocidade do vento
+- Ícone do clima atual
+- Indicador de carregamento
+- Tratamento de campo vazio, cidade inexistente e falha na API
 
 ---
 
-## 🧠 Conceitos aplicados
+## 🛠️ Stack
 
-Projeto desenvolvido com foco na prática de fundamentos do React e TypeScript.
-
-- Componentização
-- Props
-- Hooks (`useState`)
-- Requisições assíncronas (`fetch` + `async/await`)
-- Consumo de API REST
-- Gerenciamento de estado
-- Renderização condicional
-- Tipagem com TypeScript
-- Organização de componentes
-- Manipulação de eventos
-- Variáveis de ambiente (`.env`)
+| Camada | Tecnologia |
+| --- | --- |
+| Interface | React 19 |
+| Linguagem | TypeScript |
+| Build | Vite |
+| Estilos | CSS puro |
+| Dados | OpenWeather API |
+| Deploy | Vercel |
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🏗️ Arquitetura
 
-- React
-- TypeScript
-- Vite
-- CSS
-- OpenWeather API
-- Visual Studio Code
+SPA sem backend: o navegador consulta a OpenWeather diretamente.
+
+```text
+src/
+├── components/
+│   ├── SearchBar/     # input + botão de busca
+│   ├── WeatherCard/   # exibe os dados do clima
+│   └── Credits/       # rodapé
+├── types/Weather.ts   # tipagem da resposta da API
+├── utils/             # funções auxiliares
+├── styles/global.css
+└── App.tsx            # estado (cidade, clima, loading, erro) e chamada à API
+```
+
+**Fluxo:** `SearchBar` → `App` (`fetch` à OpenWeather) → estado → `WeatherCard`.
+
+O estado fica centralizado no `App`, e os componentes são apenas de apresentação, recebendo dados e callbacks por props.
 
 ---
 
 ## ▶️ Como executar
 
-### Pré-requisitos
-
-- Node.js instalado
-
-### Clonar o repositório
+Requer Node.js.
 
 ```bash
 git clone https://github.com/rafaelvassis/clima-agora.git
 cd clima-agora
-```
-
-### Instalar dependências
-
-```bash
 npm install
 ```
 
-### Criar o arquivo `.env`
+Crie um arquivo `.env` na raiz com a sua chave ([obtenha uma gratuita](https://openweathermap.org/api)):
 
 ```env
 VITE_OPENWEATHER_API_KEY=sua_chave_aqui
 ```
-
-Você pode obter gratuitamente uma chave em:
-
-https://openweathermap.org/api
-
-### Executar
 
 ```bash
 npm run dev
@@ -93,31 +75,24 @@ npm run dev
 
 ---
 
-## 📚 Aprendizados
+## ☁️ Deploy
 
-Durante o desenvolvimento deste projeto foram praticados:
+Hospedado na **Vercel**, com deploy automático a cada push na `main`.
 
-- Consumo de APIs REST
-- Manipulação de requisições assíncronas
-- Tratamento de erros de requisição
-- Gerenciamento de estado com Hooks
-- Organização de componentes React
-- Tipagem de dados retornados pela API
-- Utilização de variáveis de ambiente
-- Renderização condicional
+- **Build:** `npm run build`
+- **Saída:** `dist`
+- **Variável de ambiente:** `VITE_OPENWEATHER_API_KEY`, configurada em *Project Settings → Environment Variables*
+
+> ⚠️ Variáveis `VITE_*` são incluídas no bundle do front-end e ficam visíveis no navegador. Para um projeto de estudo isso é aceitável; em produção, o ideal é intermediar a chamada por uma função serverless.
 
 ---
 
-## 🚀 Possíveis melhorias futuras
+## 📌 Próximos passos
 
-- Pesquisa ao pressionar Enter
 - Geolocalização do usuário
 - Previsão para os próximos dias
-- Temperatura mínima e máxima
-- Sensação térmica
-- Nascer e pôr do sol
+- Mínima, máxima e sensação térmica
 - Alternância entre °C e °F
-- Responsividade aprimorada
 
 ---
 
